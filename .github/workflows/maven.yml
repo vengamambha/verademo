@@ -38,7 +38,7 @@ jobs:
         createprofile: true
         createsandbox: true
         version: ${{ github.run_id }}
-        filepath: target/verademo.war
+        filepath: $(System.DefaultWorkingDirectory)/target/verademo.war
         sandboxname: Github-Sandbox
         vid: ${{ secrets.VERACODE_API_ID }}
         vkey: ${{ secrets.VERACODE_API_KEY }}
