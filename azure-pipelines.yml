@@ -24,7 +24,7 @@ steps:
     AnalysisService: 'veracode_US_Instance'
     veracodeAppProfile: 'Subbu'
     version: '$(build.buildNumber)'
-    filepath: '/Users/patchavamahendranaidu/myagent/_work/3/s/app/target'
+    filepath: 'app/target/verademo.war'
     createProfile: true
     failBuildIfUploadAndScanBuildStepFails: true
     importResults: true
