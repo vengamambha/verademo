@@ -10,22 +10,19 @@ pool:
   name: Default
 
 steps:
-- task: Maven@4
+- task: Bash@3
   inputs:
-    mavenPomFile: 'app/pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-- task: VeracodeCommunityScaAdoExtension@1
-  inputs:
-    scanType: 'url'
-    scanTarget: 'https://github.com/ashynavad-git/SCA.git'
-    appName: 'Subbu'
-    minCVSS: '0'
-    recursiveScan: true
-  env:
-    SRCCLR_API_TOKEN: da49d6c8-65e9-4928-80a4-c89c5f2c085c
+    targetType: 'inline'
+    script: |
+      displayName: 'Veracode SCA scan'
+        inputs:
+           targetType: 'inline'
+           script: |
+                export SRCCLR_SCM_URI=https://github.com/christyson/verademo
+                export SRCCLR_API_TOKEN="da49d6c8-65e9-4928-80a4-c89c5f2c085c"
+                export SRCCLR_SCM_REF=master
+                export SRCCLR_SCM_REV="Amit"
+                curl -sSL https://download.sourceclear.com/ci.sh | bash -s -- scan --update-advisor
+        continueOnError: true
+        env:
+          SRCCLR_API_TOKEN:da49d6c8-65e9-4928-80a4-c89c5f2c085c
