@@ -12,13 +12,15 @@ steps :
   inputs:
     ConnectionDetailsSelection: 'Service Connection'
     AnalysisService: 'Veracode'
+    failBuildIfFlawImporterFails: true
     veracodeAppProfile: 'Subbu'
     sandboxName: 
     scanType: 'Static, SCA'
     importType: 'All Flaws'
     workItemType: 'Bug'
-    area: '$(system.teamProject)'
+    area: 'mpatchava/Flaw_Importer/Boards'
     overwriteAreaPathInWorkItemsOnImport: false
-    iterationPath: '$(system.teamProject)'
+    iterationPath: 'mpatchava/Flaw_Importer/Boards'
     overwriteIterationPath: false
     flawImportLimit: '10'
+  
