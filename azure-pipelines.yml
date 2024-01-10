@@ -13,13 +13,14 @@ steps :
     ConnectionDetailsSelection: 'Service Connection'
     AnalysisService: 'Veracode'
     failBuildIfFlawImporterFails: true
-    veracodeAppProfile: 'Subbu' 
+    veracodeAppProfile: 'Subbu'
+    sandboxName: 
     scanType: 'Static, SCA'
     importType: 'All Flaws'
-    workItemType: 'Issue'
+    workItemType: 'Epic'
     area: '$(system.teamProject)'
     overwriteAreaPathInWorkItemsOnImport: true
     iterationPath: '$(system.teamProject)'
-    overwriteIterationPath: false
-    flawImportLimit: '10'
+    overwriteIterationPath: true
+    flawImportLimit: '1'
   
