@@ -7,27 +7,18 @@ trigger:
 - main
 pool:
    name: Default
-steps:
-- task: Maven@4
-  inputs:
-    mavenPomFile: 'app/pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-- task: Veracode@3
+steps :
+- task: Veracode Flaw Importer@3
   inputs:
     ConnectionDetailsSelection: 'Service Connection'
     AnalysisService: 'veracode_US_Instance'
     veracodeAppProfile: 'Subbu'
-    version: '$(build.buildNumber)'
-    filepath: 'app/target/verademo.war'
-    createProfile: true
-    failBuildIfUploadAndScanBuildStepFails: true
-    importResults: true
-    failBuildOnPolicyFail: true
-    maximumWaitTime: '60'
-    scanpollinginterval: '30'
+    sandboxName: 
+    scanType: 'Static, SCA'
+    importType: 'All Flaws Violating Policy'
+    workItemType: 'Bug'
+    area: '$(system.teamProject)'
+    overwriteAreaPathInWorkItemsOnImport: true
+    iterationPath: '$(system.teamProject)'
+    overwriteIterationPath: true
+    flawImportLimit: '10'
