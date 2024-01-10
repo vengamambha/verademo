@@ -11,7 +11,7 @@ steps :
 - task: Veracode Flaw Importer@3
   inputs:
     ConnectionDetailsSelection: 'Service Connection'
-    AnalysisService: 'veracode_US_Instance'
+    AnalysisService: 'veracode'
     failBuildIfFlawImporterFails: true
     veracodeAppProfile: 'Subbu'
     sandboxName: 
