@@ -8,19 +8,15 @@ trigger:
 pool:
    name: Default
 steps :
-- task: Veracode Flaw Importer@3
+- task: Maven@4
   inputs:
-    ConnectionDetailsSelection: 'Service Connection'
-    AnalysisService: 'Veracode'
-    failBuildIfFlawImporterFails: true
-    veracodeAppProfile: 'myapp'
-    sandboxName: 'Project Security'
-    scanType: 'Static, SCA'
-    importType: 'All Flaws'
-    workItemType: 'Bug'
-    area: '$(system.teamProject)'
-    overwriteAreaPathInWorkItemsOnImport: true
-    iterationPath: '$(system.teamProject)'
-    overwriteIterationPath: true
-    flawImportLimit: '10'
+    mavenPomFile: 'app/pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testRunTitle: 'Test'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
   
