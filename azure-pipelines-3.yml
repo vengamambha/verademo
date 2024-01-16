@@ -19,7 +19,7 @@ steps:
     sandboxName: 
     scanType: 'Static, SCA'
     importType: 'All Flaws'
-    workItemType: 'Issue'
+    workItemType: 'Bug'
     area: '$(system.teamProject)'
     overwriteAreaPathInWorkItemsOnImport: true
     iterationPath: '$(system.teamProject)'
