@@ -15,7 +15,7 @@ steps:
     ConnectionDetailsSelection: 'Service Connection'
     AnalysisService: 'Veracode'
     failBuildIfFlawImporterFails: true
-    veracodeAppProfile: 'Subbu'
+    veracodeAppProfile: 'Leo'
     sandboxName: 
     scanType: 'Static, SCA'
     importType: 'All Flaws'
