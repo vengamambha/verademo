@@ -7,10 +7,9 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: Default
 
 steps:
--
 - task: Veracode Flaw Importer@3
   inputs:
     ConnectionDetailsSelection: 'Service Connection'
