@@ -25,4 +25,4 @@ steps:
     iterationPath: '$(system.teamProject)'
     overwriteIterationPath: true
     flawImportLimit: '10'
-    customFields: 'Microsoft.VSTS.Common.Severity: 3 - Medium'
+    customFields: 'Microsoft.VSTS.Common.Severity:3 - Medium'
